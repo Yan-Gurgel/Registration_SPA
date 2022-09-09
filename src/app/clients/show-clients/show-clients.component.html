@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--
+  Utilizar no modal de add e edit
+<form>
+    <legend>Clients:</legend>
+    <div class="form-row form1row">
+      <div class="form-group col-md-4 line1">
+        <label for="fname">Full Name:</label>
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          class="form-control"
+          [(ngModel)]="client.name"
+        /><br /><br />
+      </div>
+      <div class="form-group col-md-3 line1">
+        <label for="gender">Gender:</label>
+        <input
+          type="text"
+          id="gender"
+          name="gender"
+          class="form-control"
+          [(ngModel)]="client.gender"
+        /><br /><br />
+      </div>
+      <div class="form-group col-md-3 line1">
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" class="form-control" [(ngModel)]="client.birthDate"/><br /><br />
+      </div>
+    </div>
+    <div class="form-row form1row">
+      <div class="form-group col-md-1">
+        <label for="age">Age:</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          class="form-control"
+          [(ngModel)]="client.age"
+        /><br /><br />
+      </div>
+
+      <div class="form-group col-md-3 line2">
+        <label for="city">City:</label>
+        <input
+          type="city"
+          id="city"
+          name="city"
+          class="form-control"
+          [(ngModel)]="client.city"
+        /><br /><br />
+      </div>
+
+    </div>
+    <div class="form-group col-md-4 line1">
+      <button type="button" (click)="Save()" class="btn btn-success buttonsave">Save</button>
+      </div>
+
+
+</form>
+-->
+
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Client</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <app-add-edit-clients></app-add-edit-clients>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-add-client"><i class="fa fa-plus-circle" aria-hidden="true"></i> Client</button>
+<hr />
+<table id="tableClients" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Birthdate</th>
+      <th scope="col">Age</th>
+      <th scope="col">City</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clientsList$ | async">
+      <th>{{ client.id }}</th>
+      <th>{{ client.name }}</th>
+      <th>{{ client.gender }}</th>
+      <th>{{ client.birthDate }}</th>
+      <th>{{ client.age }}</th>
+      <th>{{ client.city }}</th>
+      <th><button class="btn btn-edit"><i class="fa fa-edit"></i></button></th>
+      <th><button class="btn btn-trash"><i class="fa fa-trash"></i></button></th>
+    </tr>
+  </tbody>
+</table>
